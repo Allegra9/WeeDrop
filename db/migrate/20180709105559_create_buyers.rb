@@ -4,7 +4,9 @@ class CreateBuyers < ActiveRecord::Migration[5.2]
       t.string :username
       t.string :password_digest
       t.string :delivery_address
+      t.string :delivery_address_postcode
       t.string :billing_address
+      t.string :billing_address_postcode
 
       t.timestamps
     end
