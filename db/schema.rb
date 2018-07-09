@@ -16,7 +16,9 @@ ActiveRecord::Schema.define(version: 2018_07_09_105559) do
     t.string "username"
     t.string "password_digest"
     t.string "delivery_address"
+    t.string "delivery_address_postcode"
     t.string "billing_address"
+    t.string "billing_address_postcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
