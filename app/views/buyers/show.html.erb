@@ -1,12 +1,14 @@
 <%= link_to "Edit details", edit_buyer_path %>
 
-<h3>Hi, <%= @buyer.username %>!</h3>
+<h3>Hi, <%= @buyer.name %>!</h3>
 
-<div>
-  <h3>Addresses:</h3>
-  <li>Billing address</li>
-  <%= @buyer.billing_address %>, <%= @buyer.billing_address_postcode %>
+<% if @buyer.billing_address %>
+  <div>
+    <h3>Addresses:</h3>
+    <li>Billing address</li>
+    <%= @buyer.billing_address %>, <%= @buyer.billing_postcode %>
 
-  <li>Delivery address</li>
-  <%= @buyer.delivery_address %>, <%= @buyer.delivery_address_postcode %>
-</div>
+    <li>Delivery address</li>
+    <%= @buyer.delivery_address %>, <%= @buyer.delivery_postcode %>
+  </div>
+<% end %>

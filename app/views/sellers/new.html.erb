@@ -1,3 +1,21 @@
-<h1>Create new Account</h1>
+<h3>New account:</h3>
 
-<%= render "form" %>
+<%= form_tag '/users', method: 'post' do %>
+<%= label_tag :name %>:
+<%= text_field_tag :'seller[name]' %>
+<br></br>
+<%= label_tag :address %>:
+<%= text_field_tag :'seller[address]' %>
+<br></br>
+<%= label_tag :postcode %>:
+<%= text_field_tag :'seller[postcode]' %>
+<br></br>
+<%= label_tag :username %>:
+<%= text_field_tag :'user[username]' %>
+<br><br>
+<%= label_tag :password %>:
+<%= password_field_tag :'user[password]' %>
+<br><br>
+<%= hidden_field_tag :'user[is_seller]', true %>
+<%= submit_tag "Submit" %>
+<% end %>

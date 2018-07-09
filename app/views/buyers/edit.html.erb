@@ -3,13 +3,13 @@
 <%= form_for @buyer do |f| %>
 <%= f.label :billing_address %>:
 <%= f.text_field :billing_address %>
-<%= f.label :billing_address_postcode, "Postcode" %>:
-<%= f.text_field :billing_address_postcode %>
+<%= f.label :billing_postcode, "Postcode" %>:
+<%= f.text_field :billing_postcode %>
 <br></br>
 <%= f.label :delivery_address %>:
 <%= f.text_field :delivery_address %>
-<%= f.label :billing_address_postcode, "Postcode" %>:
-<%= f.text_field :billing_address_postcode %>
+<%= f.label :billing_postcode, "Postcode" %>:
+<%= f.text_field :billing_postcode %>
 <br></br>
 <%= f.submit "Submit" %>
 <% end %>
