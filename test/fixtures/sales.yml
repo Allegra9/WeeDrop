@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyer: one
+  status: MyString
+  total: 1.5
+
+two:
+  buyer: two
+  status: MyString
+  total: 1.5
