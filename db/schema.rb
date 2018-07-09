@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_09_101446) do
+ActiveRecord::Schema.define(version: 2018_07_09_105559) do
 
   create_table "buyers", force: :cascade do |t|
-    t.string "billing_address"
+    t.string "username"
+    t.string "password_digest"
     t.string "delivery_address"
+    t.string "billing_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,14 +53,9 @@ ActiveRecord::Schema.define(version: 2018_07_09_101446) do
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
