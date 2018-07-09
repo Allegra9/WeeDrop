@@ -4,6 +4,7 @@ class CreateSellers < ActiveRecord::Migration[5.2]
       t.string :username
       t.string :password_digest
       t.string :address
+      t.string :postcode
 
       t.timestamps
     end
