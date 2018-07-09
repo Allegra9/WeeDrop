@@ -1,0 +1,9 @@
+<h1>Welcome to the MarketPlace!!</h1>
+
+<h2>Browse through all available Sellers!</h2>
+
+<ul>
+  <% @sellers.each do |seller| %>
+    <li><%= link_to seller.username, seller %></li>
+  <% end %>
+</ul>
