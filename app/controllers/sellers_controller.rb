@@ -1,5 +1,6 @@
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_log_in, only: :new
 
   def index
     @sellers = Seller.all
@@ -10,6 +11,7 @@ class SellersController < ApplicationController
   end
 
   def show
+
     @seller = Seller.find(params[:id])
   end
 

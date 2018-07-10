@@ -2,15 +2,19 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/', to: 'sessions#new', as: 'new_session'
 
-  get 'sellers/:seller_id/products', to: 'products#index', as: 'seller_products'
-  get 'sellers/:seller_id/products/:id', to: 'products#show', as: 'seller_product'
+  resources :sessions, only: [:create, :destroy]
 
-  resources :users
+  resources :users, only: :create
 
-  resources :sellers, only: [:new, :show, :index] do
-    resources :products, only: [:new, :show, :index]
+  resources :buyers, only: [:new, :show, :edit, :update, :destroy]
+
+  # get 'sellers/:seller_id/products', to: 'products#index', as: 'seller_products'
+  # get 'sellers/:seller_id/products/:id', to: 'products#show', as: 'seller_product'
+  # get 'sellers/:id', to: 'sellers#show'
+  resources :sellers, only: [:new, :show, :index, :edit, :update] do
+    resources :products, only: [:new, :show, :index, :edit, :update, :destroy]
   end
 
-  resources :buyers
+
 
 end
