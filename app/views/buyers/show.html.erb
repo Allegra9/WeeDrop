@@ -23,9 +23,8 @@
         <li><%= quant %> x £<%= item.price %> | <%= item.name%> - - <%= link_to "remove", seller_remove_product_path(item.seller, item, @buyer.id) %></li>
       <% end %>
     </ul>
-    <%= form_tag '/sales' do %>
+    <%= form_tag '/sales/new', method: 'get' do %>
       <%= submit_tag "Checkout" %>
     <% end %>
   </div>
 <% end %>
-

@@ -1,6 +1,6 @@
 <%= link_to "Back to all sellers", sellers_path %>
 
-<%= link_to "Checkout", new_sale_path %>
+<%= link_to "View Cart", buyer_path(Buyer.find(current_user.class_id)) %>
 
 <h3>Here are all products:</h3>
 

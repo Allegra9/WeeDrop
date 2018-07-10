@@ -1,11 +1,12 @@
+<%= link_to "Cancel", buyer_path(Buyer.find(current_user.class_id)) %>
 
 <% if cart != [] %>
   <div>
     <h3>Order summary:</h3>
-    <h4>TOTAL: £ <%= cart_total %></h4>
+    <h4>TOTAL: £<%= cart_total %></h4>
     <ul>
       <% @cart_items.each do |item_quant| %>
-        <li><%= item_quant[1] %> x £<%= item_quant[0].price %> | <%= item_quant[0].name%></li>
+        <li><%= item_quant[1] %> x £<%= item_quant[0].price %> <%= item_quant[0].name%></li>
       <% end %>
     </ul>
   </div>
@@ -13,7 +14,6 @@
 
 <br>
 <h3>Payment details:</h3>
-<br>
 <%= form_tag "/sales", method: 'post' do %>
   <%= label_tag :'cardholder_name' %>:
   <%= text_field_tag :'buyer[cardholder_name]' %>
@@ -42,20 +42,8 @@
   <%= label_tag :'delivery_postcode' %>:
   <%= text_field_tag :'buyer[delivery_postcode]' %>
   <br><br>
+  <%= hidden_field_tag :total, cart_total %>
   <%= submit_tag "Make Payment" %>
 <% end %>
 
 <br>
-
-cardholder's name
-card number
-expiry date  month, year
-CVV
-
-email address
-billing address, postcode
-delivery_address, postcode
-
-Make payment
-
-go back/cancel payment
