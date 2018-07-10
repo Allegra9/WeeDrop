@@ -1,0 +1,61 @@
+
+<% if cart != [] %>
+  <div>
+    <h3>Order summary:</h3>
+    <h4>TOTAL: £ <%= cart_total %></h4>
+    <ul>
+      <% @cart_items.each do |item_quant| %>
+        <li><%= item_quant[1] %> x £<%= item_quant[0].price %> | <%= item_quant[0].name%></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<br>
+<h3>Payment details:</h3>
+<br>
+<%= form_tag "/sales", method: 'post' do %>
+  <%= label_tag :'cardholder_name' %>:
+  <%= text_field_tag :'buyer[cardholder_name]' %>
+  <br><br>
+  <%= label_tag :'card_number' %>:
+  <%= text_field_tag :'buyer[card_number]' %>
+  <br><br>
+  <%= label_tag :'card_expiry_date', "Expiry date MM/YY" %>:
+  <%= text_field_tag :'buyer[card_expiry_date]' %>
+  <br><br>
+  <%= label_tag :'buyer[cvv]', "CCV" %>:
+  <%= text_field_tag :'buyer[cvv]' %>
+  <br><br>
+  <%= label_tag :'email_address' %>:
+  <%= text_field_tag :'buyer[email_address]' %>
+  <br><br>
+  <%= label_tag :'billing_address' %>:
+  <%= text_field_tag :'buyer[billing_address]' %>
+  <br><br>
+  <%= label_tag :'billing_postcode' %>:
+  <%= text_field_tag :'buyer[billing_postcode]' %>
+  <br><br>
+  <%= label_tag :'delivery_address' %>:
+  <%= text_field_tag :'buyer[delivery_address]' %>
+  <br><br>
+  <%= label_tag :'delivery_postcode' %>:
+  <%= text_field_tag :'buyer[delivery_postcode]' %>
+  <br><br>
+  <%= submit_tag "Make Payment" %>
+<% end %>
+
+<br>
+
+cardholder's name
+card number
+expiry date  month, year
+CVV
+
+email address
+billing address, postcode
+delivery_address, postcode
+
+Make payment
+
+go back/cancel payment

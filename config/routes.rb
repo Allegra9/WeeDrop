@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get '/products/:id/remove/:buyer_id', to: 'products#remove', as: 'remove_product'
   end
 
-
+  resources :sales
 
 
 
