@@ -1,5 +1,5 @@
 <%= link_to "Back to all products from this seller", seller_products_path(@seller)  %>
-<br><br
+<br><br>
 <div>
   <%= @product.name %><br>
   Price: £<%= @product.price %><br>
@@ -7,7 +7,7 @@
 
   Quantity:
 
-  <%= form_tag '/products', method: 'post' do %>
+  <%= form_tag '/products/:id/add', method: 'post' do %>
   <%= select_tag(:quantity, options_for_select([['1', 1], ['4', 4], ['7', 7], ['14', 14], ['28', 28]])) %>
   <%= submit_tag "Submit" %>
   <% end %>

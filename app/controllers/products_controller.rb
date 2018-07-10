@@ -44,6 +44,10 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def add_to_cart
+    cart << [PRODUCT_ID, QUANTITY]
+  end
+
   private
 
   def product_params

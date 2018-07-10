@@ -12,3 +12,14 @@
     <%= @buyer.delivery_address %>, <%= @buyer.delivery_postcode %>
   </div>
 <% end %>
+
+<% if cart != [] %>
+  <div>
+    <h3>Your Cart:</h3>
+    <ul>
+      <% @cart_items.each do |item_quant| %>
+        <li><%= item_quant[1] %> x £<%= item_quant[0].price %> | <%= link_to item_quant[0].name, item_quant[0] %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
