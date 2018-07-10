@@ -20,5 +20,4 @@ class SalesController < ApplicationController
     params.require(:sale).permit(:buyer_id, :status, :total)
   end
 
-
 end

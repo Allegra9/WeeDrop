@@ -7,9 +7,9 @@ class BuyersController < ApplicationController
 
   def show
     @buyer = Buyer.find(params[:id])
-    @cart_items = []
-    cart.each do |item|
-      @cart_items << [Product.find(item[0]), item[1]]
+    @cart_items = {}
+    cart.each do |item_id, quant|
+      @cart_items[Product.find(item_id)] = quant
     end
   end
 

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :cart, :cart_total
+  helper_method :cart, :cart_total, :empty_cart
   before_action :current_user
   before_action :require_log_in
 
@@ -16,18 +16,22 @@ class ApplicationController < ActionController::Base
   end
 
   def cart
-    session[:cart] ||= []
+    session[:cart] ||= {}
   end
 
   def cart_total
-    cart_items = []
-    cart.each do |item|
-      cart_items << [Product.find(item[0]), item[1]]
+    cart_items = {}
+    cart.each do |item_id, quant|
+      cart_items[Product.find(item_id)] = quant
     end
     total = 0
-    cart_items.each do |i_q|
-      total += (i_q[0].price * i_q[1].to_i)
+    cart_items.each do |i, q|
+      total += (i.price.to_i * q.to_f)
     end
     total
+  end
+
+  def empty_cart
+    session.delete :cart
   end
 end
