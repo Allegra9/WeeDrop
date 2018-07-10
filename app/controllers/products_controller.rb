@@ -44,6 +44,11 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def add
+    cart << [params[:id], params[:quantity]]
+    redirect_to seller_products_path(Seller.find(params[:seller_id]))
+  end
+
   private
 
   def product_params
