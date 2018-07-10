@@ -16,6 +16,6 @@ Rails.application.routes.draw do
     post '/products/:id/add', to: 'products#add', as: 'add_product'
   end
 
-
+  resources :sales
 
 end

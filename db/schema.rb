@@ -14,6 +14,11 @@ ActiveRecord::Schema.define(version: 2018_07_09_154227) do
 
   create_table "buyers", force: :cascade do |t|
     t.string "name"
+    t.string "email_address"
+    t.string "cardholder_name"
+    t.integer "card_number"
+    t.integer "cvv"
+    t.string "card_expiry_date"
     t.string "delivery_address"
     t.string "delivery_postcode"
     t.string "billing_address"
