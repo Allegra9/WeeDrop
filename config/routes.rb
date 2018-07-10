@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   resources :sellers, only: [:new, :show, :index, :edit, :update] do
     resources :products, only: [:new, :show, :index, :edit, :update, :destroy]
     post '/products/:id/add', to: 'products#add', as: 'add_product'
+    get '/products/:id/remove/:buyer_id', to: 'products#remove', as: 'remove_product'
   end
+
+
 
 
 

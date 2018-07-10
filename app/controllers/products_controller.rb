@@ -45,8 +45,13 @@ class ProductsController < ApplicationController
   end
 
   def add
-    cart << [params[:id], params[:quantity]]
+    cart[params[:id].to_i] = params[:quantity]
     redirect_to seller_products_path(Seller.find(params[:seller_id]))
+  end
+
+  def remove
+    cart.delete(params[:id])
+    redirect_to buyer_path(params[:buyer_id])
   end
 
   private
