@@ -8,10 +8,10 @@ class BuyersController < ApplicationController
     @buyer = Buyer.find(params[:id])
   end
 
-  def create
-    @buyer = Buyer.create(buyer_params(:username, :password))
-    redirect_to @buyer
-  end
+  # def create
+  #   @buyer = Buyer.create(buyer_params(:username, :password))
+  #   redirect_to @buyer
+  # end
 
   def edit
     @buyer = Buyer.find(params[:id])
@@ -27,6 +27,7 @@ class BuyersController < ApplicationController
   end
 
   private
+  
   def buyer_params(*args)
     params.require(:buyer).permit(*args)
   end

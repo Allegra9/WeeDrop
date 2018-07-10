@@ -1,0 +1,11 @@
+<%= link_to "Back to all products from this seller", sellers_products_path(@seller)  %>
+<br><br
+<div>
+<% Product.all.each do |product| %>
+  <%= product.name %><br>
+  £<%= product.price %><br>
+  <%= product.description %><br>
+<% end %>
+</div>
+
+<br><br>

@@ -1,3 +1,5 @@
+<%= link_to "Cancel", @buyer %>
+
 <h3>Edit account details:</h3>
 
 <%= form_for @buyer do |f| %>
@@ -8,8 +10,8 @@
 <br></br>
 <%= f.label :delivery_address %>:
 <%= f.text_field :delivery_address %>
-<%= f.label :billing_postcode, "Postcode" %>:
-<%= f.text_field :billing_postcode %>
+<%= f.label :delivery_postcode, "Postcode" %>:
+<%= f.text_field :delivery_postcode %>
 <br></br>
 <%= f.submit "Submit" %>
 <% end %>
