@@ -5,10 +5,10 @@
 <% if @buyer.billing_address %>
   <div>
     <h3>Addresses:</h3>
-    <li>Billing address</li>
+    <li>Billing address:</li>
     <%= @buyer.billing_address %>, <%= @buyer.billing_postcode %>
-
-    <li>Delivery address</li>
+<br><br>
+    <li>Delivery address:</li>
     <%= @buyer.delivery_address %>, <%= @buyer.delivery_postcode %>
   </div>
 <% end %>

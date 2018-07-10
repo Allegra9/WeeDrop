@@ -1,0 +1,10 @@
+<h3>Here are all products:</h3>
+
+<div>
+<% @products.each do |product| %>
+  <%= link_to product.name, seller_product_path(product) %> <br>
+  £<%= product.price %><br>
+<% end %>
+</div>
+
+<br><br>

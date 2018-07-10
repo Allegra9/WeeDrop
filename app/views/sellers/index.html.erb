@@ -1,9 +1,21 @@
 <h1>Welcome to the MarketPlace!!</h1>
 
 <h2>Browse through all available Sellers!</h2>
+more like categories?<br>
+<br>
+Sellers then go to the products page and then to product show page. <br>
+
+CBD KinG
+Sativa Heaven
+Indica Shop
+Cindarella 99
+Ganja Goddess Bakes
+Chocolate
 
 <ul>
   <% @sellers.each do |seller| %>
-    <li><%= link_to seller.username, seller %></li>
+    <li><%= link_to seller.name, seller_products_path(seller.id) %></li>
   <% end %>
 </ul>
+
+link to seller's products here!!! not working.  products_path(seller) ????

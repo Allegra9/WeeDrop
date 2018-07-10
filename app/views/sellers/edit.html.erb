@@ -1,0 +1,10 @@
+<h3>Edit account details:</h3>
+
+<%= form_for @seller do |f| %>
+<%= f.label :address %>:
+<%= f.text_field :address %>
+<%= f.label :postcode %>:
+<%= f.text_field :postcode %>
+<br></br>
+<%= f.submit "Submit" %>
+<% end %>

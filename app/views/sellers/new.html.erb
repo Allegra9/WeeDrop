@@ -1,7 +1,7 @@
 <h3>New account:</h3>
 
 <%= form_tag '/users', method: 'post' do %>
-<%= label_tag :name %>:
+<%= label_tag :name, "Shop name" %>:
 <%= text_field_tag :'seller[name]' %>
 <br></br>
 <%= label_tag :address %>:
