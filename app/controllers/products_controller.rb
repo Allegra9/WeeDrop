@@ -23,8 +23,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @seller = Seller.find(params[:seller_id])
-    # @sellers = Seller.where(seller_id: params[:id])
-    # gets all the prodcuts from a clicked seller
   end
 
   def edit

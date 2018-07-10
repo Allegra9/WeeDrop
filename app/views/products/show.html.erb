@@ -1,11 +1,20 @@
 <%= link_to "Back to all products from this seller", seller_products_path(@seller)  %>
 <br><br
 <div>
-<% Product.all.each do |product| %>
-  <%= product.name %><br>
-  £<%= product.price %><br>
-  <%= product.description %><br>
-<% end %>
+  <%= @product.name %><br>
+  Price: £<%= @product.price %><br>
+  <br><br>
+
+  Quantity:
+
+  <%= form_tag '/products', method: 'post' do %>
+  <%= select_tag(:quantity, options_for_select([['1', 1], ['4', 4], ['7', 7], ['14', 14], ['28', 28]])) %>
+  <%= submit_tag "Submit" %>
+  <% end %>
+  <br></br>
+
+  <%= @product.description %><br>
+
 </div>
 
 <br><br>
