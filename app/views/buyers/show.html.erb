@@ -13,14 +13,17 @@
   </div>
 <% end %>
 
-<% if cart != [] %>
+<% if cart != {} %>
   <div>
     <h3>Your Cart:</h3>
     <h4>TOTAL: £ <%= cart_total %></h4>
     <ul>
-      <% @cart_items.each do |item_quant| %>
-        <li><%= item_quant[1] %> x £<%= item_quant[0].price %> | <%= item_quant[0].name%></li>
+      <% @cart_items.each do |item, quant| %>
+        <li><%= quant %> x £<%= item.price %> | <%= item.name%> - - <%= link_to "remove", seller_remove_product_path(item.seller, item, @buyer.id) %></li>
       <% end %>
     </ul>
+    <%= form_tag '/sales' do %>
+      <%= submit_tag "Checkout" %>
+    <% end %>
   </div>
 <% end %>
