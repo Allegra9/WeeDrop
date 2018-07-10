@@ -1,29 +1,13 @@
 class SellersController < ApplicationController
-  before_action :set_seller, only: [:show, :products, :edit, :update, :destroy]
+  before_action :set_seller, only: [:show, :edit, :update, :destroy]
 
   def index
     @sellers = Seller.all
   end
 
-  def products
-    @products = Product.where(seller_id: params[:id])
-    # gets all the prodcuts from a clicked seller
-  end
-
   def new
     @seller = Seller.new
   end
-
-  # def create
-  #   @seller = Seller.create(seller_params(:username, :password))
-  #
-  #   if @seller.valid?
-  #     redirect_to @seller
-  #   else
-  #     flash[:errors] = @seller.errors.full_messages
-  #     redirect_to new_seller_path
-  #   end
-  # end
 
   def show
     @seller = Seller.find(params[:id])

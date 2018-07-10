@@ -14,7 +14,7 @@ Chocolate
 
 <ul>
   <% @sellers.each do |seller| %>
-    <li><%= link_to seller.name, seller_products_path(seller.id) %></li>
+    <li><%= link_to seller.name, seller_products_path(seller) %></li>
   <% end %>
 </ul>
 

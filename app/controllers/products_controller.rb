@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where(seller_id: params[:seller_id])
+    @seller = Seller.find(params[:seller_id])
   end
 
   def new
@@ -21,6 +22,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @seller = Seller.find(params[:seller_id])
     # @sellers = Seller.where(seller_id: params[:id])
     # gets all the prodcuts from a clicked seller
   end
