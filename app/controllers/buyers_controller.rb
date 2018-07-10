@@ -1,4 +1,5 @@
 class BuyersController < ApplicationController
+  skip_before_action :require_log_in, only: :new
 
   def new
     @buyer = Buyer.new
