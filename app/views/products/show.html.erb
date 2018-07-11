@@ -5,13 +5,15 @@
   Price: £<%= @product.price %><br>
   <br><br>
 
-  Quantity:
+  <% if !current_user.is_seller %>
+    Quantity:
 
-  <%= form_tag "/sellers/#{@product.seller.id}/products/#{@product.id}/add", method: 'post' do %>
-  <%= select_tag(:quantity, options_for_select([['1', 1], ['4', 4], ['7', 7], ['14', 14], ['28', 28]])) %>
-  <%= submit_tag "Add to cart" %>
+    <%= form_tag "/sellers/#{@product.seller.id}/products/#{@product.id}/add", method: 'post' do %>
+      <%= select_tag(:quantity, options_for_select([['1', 1], ['4', 4], ['7', 7], ['14', 14], ['28', 28]])) %>
+      <%= submit_tag "Add to cart" %>
+    <% end %>
+    <br></br>
   <% end %>
-  <br></br>
 
   <%= @product.description %><br>
 

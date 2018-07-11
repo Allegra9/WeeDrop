@@ -13,12 +13,12 @@ Seller.create(name: "Cindarella 99", address: "99 Cindy Street", postcode: "KT2 
 Seller.create(name: "Ganja Goddess Bakes", address: "23 Finchley Rd", postcode: "N2 5TH" )
 Seller.create(name: "Chocolate Hai", address: "131 Finsbury Pavament", postcode: "EC2A 1NT" )
 
-user1 = User.create(username: 'testb', password: '123', is_seller: false)
+user1 = User.create(username: 'testb', password: '1234567', is_seller: false)
 buyer1 = Buyer.create(name: 'TestBuyer')
 user1.class_id = buyer1.id
 user1.save
 
-user2 = User.create(username: 'tests', password: '123', is_seller: true)
+user2 = User.create(username: 'tests', password: '1234567', is_seller: true)
 seller1 = Seller.create(name: 'TestSeller', address: 'Anything', postcode: 'N1 7RF')
 user2.class_id = seller1.id
 user2.save
