@@ -1,4 +1,5 @@
 <%= link_to "Back to all sellers", sellers_path %>
+<br><br>
 
 <% if current_user.is_seller && current_user.class_id == @seller.id %>
   <%= link_to "Add a Product", new_seller_product_path(@seller) %>
@@ -9,6 +10,7 @@
 <% end %>
 
 <h3>Here are all products:</h3>
+<p>Please shop from one shop per delivery.</p>
 
 <div>
 <% @products.each do |product| %>

@@ -4,18 +4,6 @@
 
 <h3>Hi, <%= @buyer.name %>!</h3>
 
-<% if @buyer.billing_address %>
-  <div>
-    <h3>Addresses:</h3>
-    <li>Billing address:</li>
-    <%= @buyer.billing_address %>, <%= @buyer.billing_postcode %>
-<br><br>
-    <li>Delivery address:</li>
-    <%= @buyer.delivery_address %>, <%= @buyer.delivery_postcode %>
-  </div>
-<% end %>
-
-
 <% if cart == {} %>
   <h3>Your Cart is Empty</h3>
 <% else %>
@@ -33,5 +21,18 @@
     <%= form_tag "/buyers/#{@buyer.id}/empty", method: 'get' do %>
       <%= submit_tag "Empty Cart" %>
     <% end %>
+  </div>
+<% end %>
+<br><br>
+*********************************
+
+<% if @buyer.billing_address %>
+  <div>
+    <h3>My addresses:</h3>
+    <li>Billing address:</li>
+    <%= @buyer.billing_address %>, <%= @buyer.billing_postcode %>
+<br><br>
+    <li>Delivery address:</li>
+    <%= @buyer.delivery_address %>, <%= @buyer.delivery_postcode %>
   </div>
 <% end %>

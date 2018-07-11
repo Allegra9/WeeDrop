@@ -6,7 +6,8 @@ class CreateBuyers < ActiveRecord::Migration[5.2]
       t.string :cardholder_name
       t.integer :card_number
       t.integer :cvv
-      t.string :card_expiry_date
+      t.integer :card_expiry_month
+      t.integer :card_expiry_year
       t.string :delivery_address
       t.string :delivery_postcode
       t.string :billing_address
