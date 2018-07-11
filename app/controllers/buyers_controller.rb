@@ -26,6 +26,11 @@ class BuyersController < ApplicationController
 
   end
 
+  def discard
+    empty_cart
+    redirect_to buyer_path(params[:id])
+  end
+
   private
 
   def buyer_params(*args)

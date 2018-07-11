@@ -19,7 +19,7 @@ class SellersController < ApplicationController
   end
 
   def update
-    @seller.update(seller_params(:address, :postcode))
+    @seller.update(seller_params)
 
     if @seller.valid?
       redirect_to @seller
@@ -36,7 +36,7 @@ class SellersController < ApplicationController
 
   private
   def seller_params
-    params.require(:seller).permit(:address, :postcode)
+    params.require(:seller).permit(:name, :address, :postcode)
   end
 
   def set_seller
