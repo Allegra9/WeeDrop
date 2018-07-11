@@ -1,4 +1,6 @@
-<%= link_to "Edit details", edit_buyer_path %>
+<%= link_to "Edit details", edit_buyer_path %> \
+<%= link_to "Visit Shops", sellers_path %> \
+<%= link_to "Log Out", logout_path %>
 
 <h3>Hi, <%= @buyer.name %>!</h3>
 
@@ -14,7 +16,9 @@
 <% end %>
 
 
-<% if cart != {} %>
+<% if cart == {} %>
+  <h3>Your Cart is Empty</h3>
+<% else %>
   <div>
     <h3>Your Cart:</h3>
     <h4>TOTAL: £ <%= cart_total %></h4>
@@ -25,6 +29,9 @@
     </ul>
     <%= form_tag '/sales/new', method: 'get' do %>
       <%= submit_tag "Checkout" %>
+    <% end %>
+    <%= form_tag "/buyers/#{@buyer.id}/empty", method: 'get' do %>
+      <%= submit_tag "Empty Cart" %>
     <% end %>
   </div>
 <% end %>

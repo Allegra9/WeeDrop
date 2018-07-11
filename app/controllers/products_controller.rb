@@ -7,16 +7,16 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @seller = Seller.find(params[:seller_id])
   end
 
   def create
     @product = Product.create(product_params)
-
     if @product.valid?
-      redirect_to @product
+      redirect_to seller_product_path(@product.seller, @product)
     else
       flash[:errors] = @product.errors.full_messages
-      redirect_to new_product_path
+      redirect_to new_seller_product_path
     end
   end
 
@@ -40,17 +40,29 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path
+    redirect_to seller_products_path(params[:seller_id])
   end
 
   def add
-    cart[params[:id].to_i] = params[:quantity]
+    product = Product.find(params[:id])
+    cart_seller = Product.find(cart.keys[0]).seller if cart.length > 0
+
+    if cart == {} || product.seller == cart_seller
+      cart[product.id] = params[:quantity]
+    else
+      flash[:errors] = ["To buy products from a different shop, please empty your cart first"]
+    end
+
     redirect_to seller_products_path(Seller.find(params[:seller_id]))
   end
 
   def remove
     cart.delete(params[:id])
+    if cart.length < 1
+      empty_cart
+    end
     redirect_to buyer_path(params[:buyer_id])
   end
 
