@@ -23,7 +23,7 @@ class Buyer < ApplicationRecord
  # this should prevent expired cards
   def card_is_not_expired?
     if self.card_expiry_month != nil
-      if self.card_expiry_month < Time.now.strftime("%-m").to_i
+      if self.card_expiry_year == Time.now.strftime("%Y").to_i && self.card_expiry_month < Time.now.strftime("%-m").to_i
         errors.add(:card_expiry_month, "must be valid")
       end
     end

@@ -1,5 +1,10 @@
 <%= link_to "Edit details", edit_buyer_path %> \
-<%= link_to "Current Shop", seller_products_path(cart_seller) %> \
+<% if cart.length > 0 %>
+  <%= link_to "Current Shop", seller_products_path(cart_seller) %> \
+<% end %>
+<% if cart.length <= 0 %>
+  <%= link_to "Visit Shops", sellers_path %> \
+<% end %>
 <%= link_to "Log Out", logout_path %>
 
 <h3>Hi, <%= @buyer.name %>!</h3>
@@ -9,6 +14,8 @@
 <% else %>
   <div>
     <h3>Your Cart:</h3>
+    <h3>Shop: <%= link_to cart_seller.name, seller_products_path(cart_seller) %>
+    </h3>
     <h4>TOTAL: £ <%= cart_total %></h4>
     <ul>
       <% @cart_items.each do |item, quant| %>
