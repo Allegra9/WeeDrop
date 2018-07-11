@@ -1,8 +1,9 @@
 <%= link_to "Back to all sellers", sellers_path %>
-
+<br><br>
 <%= link_to "View Cart", buyer_path(Buyer.find(current_user.class_id)) %>
 
 <h3>Here are all products:</h3>
+<p>Please shop from one shop per delivery.</p>
 
 <div>
 <% @products.each do |product| %>

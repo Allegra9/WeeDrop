@@ -11,6 +11,13 @@
     </ul>
   </div>
 <% end %>
+<br>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <li style="color: red;"><%= error %></li>
+  <% end %>
+<% end %>
 
 <br>
 <h3>Payment details:</h3>
@@ -21,8 +28,9 @@
   <%= label_tag :'card_number' %>:
   <%= text_field_tag :'buyer[card_number]' %>
   <br><br>
-  <%= label_tag :'card_expiry_date', "Expiry date MM/YY" %>:
-  <%= text_field_tag :'buyer[card_expiry_date]' %>
+  <%= label_tag :'card_expiry_date' %>:
+  <%= select_month nil, {add_month_numbers: false}, {name: 'buyer[card_expiry_month]', id: "card_month"} %>
+  <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: 'buyer[card_expiry_year]', id: "card_year"} %>
   <br><br>
   <%= label_tag :'buyer[cvv]', "CCV" %>:
   <%= text_field_tag :'buyer[cvv]' %>

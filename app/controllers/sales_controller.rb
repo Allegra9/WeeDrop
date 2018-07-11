@@ -15,9 +15,14 @@ class SalesController < ApplicationController
   def create
     @buyer= Buyer.find(current_user.class_id)
     @buyer.update(buyer_params)
-    @sale = Sale.create(buyer_id: @buyer.id, total: params[:total] )
-    empty_cart
-    redirect_to sale_path(@sale)
+    if @buyer.valid?
+      @sale = Sale.create(buyer_id: @buyer.id, total: params[:total] )
+      empty_cart
+      redirect_to sale_path(@sale)
+    else
+      flash[:errors] = @buyer.errors.full_messages
+      redirect_to new_sale_path
+    end
   end
 
 
@@ -28,7 +33,7 @@ class SalesController < ApplicationController
   end
 
   def buyer_params
-    params.require(:buyer).permit(:cardholder_name, :card_number, :card_expiry_date, :cvv, :email_address, :billing_address, :billing_postcode, :delivery_address, :delivery_postcode)
+    params.require(:buyer).permit(:cardholder_name, :card_number, :card_expiry_month, :card_expiry_year, :cvv, :email_address, :billing_address, :billing_postcode, :delivery_address, :delivery_postcode)
   end
 
 
