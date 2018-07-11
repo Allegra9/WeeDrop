@@ -1,3 +1,10 @@
+<% if current_user.is_seller %>
+  <%= link_to "Your Shop", seller_products_path(current_user.class_id) %> \
+  <%= link_to "Your Account", seller_path(current_user.class_id) %>
+<% else %>
+  <%= link_to "Profile/Cart", buyer_path(current_user.class_id) %>
+<% end %>
+
 <h1>Welcome to the MarketPlace!!</h1>
 
 <h2>Browse through all available Sellers!</h2>

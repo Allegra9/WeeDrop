@@ -1,13 +1,23 @@
 <%= link_to "Back to all sellers", sellers_path %>
 <br><br>
-<%= link_to "View Cart", buyer_path(Buyer.find(current_user.class_id)) %>
+
+<% if current_user.is_seller && current_user.class_id == @seller.id %>
+  <%= link_to "Add a Product", new_seller_product_path(@seller) %>
+<% end %>
+
+<% if !current_user.is_seller %>
+  <%= link_to "Profile/Cart", buyer_path(Buyer.find(current_user.class_id)) %>
+<% end %>
 
 <h3>Here are all products:</h3>
 <p>Please shop from one shop per delivery.</p>
 
 <div>
 <% @products.each do |product| %>
-  <%= link_to product.name, seller_product_path(product.seller, product) %> <br>
+  <%= link_to product.name, seller_product_path(product.seller, product) %>
+  <% if current_user.is_seller && current_user.class_id == @seller.id %>
+    - - <%= link_to "remove", "/sellers/#{@seller.id}/products/#{product.id}", method: 'delete' %>
+  <% end %><br>
   £<%= product.price %><br>
 <% end %>
 </div>
