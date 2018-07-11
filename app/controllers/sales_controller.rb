@@ -17,6 +17,12 @@ class SalesController < ApplicationController
     @buyer.update(buyer_params)
     if @buyer.valid?
       @sale = Sale.create(buyer_id: @buyer.id, total: params[:total] )
+
+      cart.each do |item, quant|
+        product = Product.find(item)
+        ProdSale.create(product_id: item, sale_id: @sale.id, quantity: quant, price: product.price)
+      end
+      byebug
       empty_cart
       redirect_to sale_path(@sale)
     else

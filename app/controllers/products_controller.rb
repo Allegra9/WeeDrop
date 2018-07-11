@@ -76,6 +76,7 @@ class ProductsController < ApplicationController
       flash[:errors] = ["You can't see this page"]
       redirect_to sellers_path
     end
+  end
 
   def set_product
     @product = Product.find(params[:id])
