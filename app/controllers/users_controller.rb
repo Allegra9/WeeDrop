@@ -8,12 +8,23 @@ class UsersController < ApplicationController
     else
       @class_user = Buyer.create(params.require(:buyer).permit(:name))
     end
-    @user.class_id = @class_user.id
-    @user.save
 
-    session[:user_id] = @user.id
+    if @user.valid? && !!@class_user.id
 
-    redirect_to @class_user
+      @user.class_id = @class_user.id
+      @user.save
+
+      session[:user_id] = @user.id
+
+      redirect_to @class_user
+    else
+      @user.destroy
+      @class_user.destroy
+      flash[:errors] = []
+      flash[:errors] += @user.errors.full_messages
+      flash[:errors] += @class_user.errors.full_messages
+      redirect_to new_session_path
+    end
   end
 
   private
