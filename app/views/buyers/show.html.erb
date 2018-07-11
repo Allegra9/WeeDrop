@@ -1,10 +1,4 @@
-<%= link_to "Edit details", edit_buyer_path %> \
-<% if cart.length > 0 %>
-  <%= link_to "Current Shop", seller_products_path(cart_seller) %> \
-<% end %>
-<% if cart.length <= 0 %>
-  <%= link_to "Visit Shops", sellers_path %> \
-<% end %>
+<%= link_to "Visit Shops", sellers_path %> \
 <%= link_to "Log Out", logout_path %>
 
 <h3>Hi, <%= @buyer.name %>!</h3>
@@ -32,8 +26,8 @@
 <% end %>
 <br><br>
 
-
 <% if @buyer.billing_address %>
+<%= link_to "Edit addresses", edit_buyer_path %>
   <div>
     <h3>My addresses:</h3>
     <li>Billing address:</li>
