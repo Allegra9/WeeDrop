@@ -1,5 +1,5 @@
 <%= link_to "Edit details", edit_buyer_path %> \
-<%= link_to "Visit Shops", sellers_path %> \
+<%= link_to "Current Shop", seller_products_path(cart_seller) %> \
 <%= link_to "Log Out", logout_path %>
 
 <h3>Hi, <%= @buyer.name %>!</h3>
@@ -18,13 +18,13 @@
     <%= form_tag '/sales/new', method: 'get' do %>
       <%= submit_tag "Checkout" %>
     <% end %>
-    <%= form_tag "/buyers/#{@buyer.id}/empty", method: 'get' do %>
+    <!-- <%= form_tag "/buyers/#{@buyer.id}/empty", method: 'get' do %>
       <%= submit_tag "Empty Cart" %>
-    <% end %>
+    <% end %> -->
   </div>
 <% end %>
 <br><br>
-*********************************
+
 
 <% if @buyer.billing_address %>
   <div>

@@ -11,11 +11,11 @@ class SellersController < ApplicationController
   end
 
   def show
-
-    @seller = Seller.find(params[:id])
+    auth_seller_actions
   end
 
   def edit
+    auth_seller_actions
   end
 
   def update
@@ -42,4 +42,12 @@ class SellersController < ApplicationController
   def set_seller
     @seller = Seller.find(params[:id])
   end
+
+  def auth_seller_actions
+    if !current_user.is_seller || current_user.class_id != @seller.id
+      flash[:errors] = ["You can't see this page"]
+      redirect_to sellers_path
+    end
+  end
+
 end
