@@ -1,0 +1,20 @@
+<h1>Edit Product</h1>
+
+<%= link_to "Remove Product", "/sellers/#{@seller.id}/products/#{@product.id}", method: 'delete' %><br><br>
+
+<%= form_for @product, url: "/sellers/#{@seller.id}/products/#{@product.id}", action: 'update' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br><br>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <br><br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br><br>
+  <%= f.label :img_url, "Image URL" %>
+  <%= f.text_field :img_url %>
+  <br><br>
+  <%= f.hidden_field :seller_id, value: @seller.id %>
+  <%= f.submit %>
+<% end %>

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :cart, :cart_total, :empty_cart, :current_user
+  helper_method :cart, :cart_total, :empty_cart, :current_user, :cart_seller
   before_action :current_user
   before_action :require_log_in
 
@@ -33,6 +33,10 @@ class ApplicationController < ActionController::Base
 
   def empty_cart
     session.delete :cart
+  end
+
+  def cart_seller
+    Product.find(cart.keys[0]).seller if cart.length > 0
   end
 
 end

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :add]
 
   def index
     @products = Product.where(seller_id: params[:seller_id])
@@ -22,19 +23,19 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @seller = Seller.find(params[:seller_id])
   end
 
   def edit
     auth_seller_actions
+    @seller = Seller.find(params[:seller_id])
   end
 
   def update
     @product.update(product_params)
 
     if @product.valid?
-      redirect_to @product
+      redirect_to seller_products_path(@product.seller)
     else
       flash[:errors] = @product.errors.full_messages
       redirect_to edit_product_path(@product)
@@ -42,17 +43,13 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     redirect_to seller_products_path(params[:seller_id])
   end
 
   def add
-    product = Product.find(params[:id])
-    cart_seller = Product.find(cart.keys[0]).seller if cart.length > 0
-
-    if cart == {} || product.seller == cart_seller
-      cart[product.id] = params[:quantity]
+    if cart == {} || @product.seller == cart_seller
+      cart[@product.id] = params[:quantity]
     else
       flash[:errors] = ["To buy products from a different shop, please empty your cart first"]
     end
@@ -79,6 +76,9 @@ class ProductsController < ApplicationController
       flash[:errors] = ["You can't see this page"]
       redirect_to sellers_path
     end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
 end
