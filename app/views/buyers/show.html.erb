@@ -1,5 +1,4 @@
-<%= link_to "Edit details", edit_buyer_path %> \
-<%= link_to "Current Shop", seller_products_path(cart_seller) %> \
+<%= link_to "Visit Shops", sellers_path %> \
 <%= link_to "Log Out", logout_path %>
 
 <h3>Hi, <%= @buyer.name %>!</h3>
@@ -9,6 +8,8 @@
 <% else %>
   <div>
     <h3>Your Cart:</h3>
+    <h3>Shop: <%= link_to cart_seller.name, seller_products_path(cart_seller) %>
+    </h3>
     <h4>TOTAL: £ <%= cart_total %></h4>
     <ul>
       <% @cart_items.each do |item, quant| %>
@@ -25,8 +26,8 @@
 <% end %>
 <br><br>
 
-
 <% if @buyer.billing_address %>
+<%= link_to "Edit addresses", edit_buyer_path %>
   <div>
     <h3>My addresses:</h3>
     <li>Billing address:</li>
