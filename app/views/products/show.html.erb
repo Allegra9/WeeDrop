@@ -1,6 +1,11 @@
 <div class="text-center">
-  <div>
-    <b><%= @product.name %></b><br>
+
+  <% if @product.img_url %>
+    <%= image_tag @product.img_url, height: 200 %><br>
+  <% end %>
+
+    <%= @product.name %><br>
+
     Price: £<%= @product.price %><br>
     <!-- <br><br> -->
 
@@ -16,8 +21,6 @@
     <% end %>
 
     <%= @product.description %><br>
-
-  </div>
 
   <br><br>
 </div>
