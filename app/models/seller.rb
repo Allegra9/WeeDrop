@@ -3,7 +3,7 @@ class Seller < ApplicationRecord
   has_many :sales, through: :products
 
   validates :name, presence: true, length: 2..20
-  validates :address, presence: true, length: 2..20
+  validates :address, presence: true, length: 2..30
   validate :check_postcode?
 
   # added to the Gemfile: gem "uk_postcode", "~> 2.1.0"

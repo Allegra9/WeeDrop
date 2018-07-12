@@ -36,22 +36,21 @@
     <br><br>
     <h3>Purchase history:</h3><br>
 
-    <ol>
-    <% @sales.each do |sale| %>
-      <div >
-        <b><%= sale.created_at %></b><br>
-        <b>Shop name: </b><%= sale.seller.name %><br>
-        <b>Sale total: </b>£<%= sale.total %><br>
-        <b>Products bought:</b>
-        <ul>
-          <% sale.products.each do |product| %>
-          <li> <%= product.name %> </li>
-          <% end %>
-        </ul>
-      </div>
-      <br></br>
-    <% end %>
-    </ol>
+  <ol>
+  <% @sales.each do |sale| %>
+    <div >
+      <b><%= sale.created_at %></b><br>
+      <b>Shop name: </b><%= sale.seller.name %><br>
+      <b>Sale total: </b>£<%= sale.total %><br>
+      <b>Products bought:</b>
+      <ul>
+        <% sale.prod_sales.each do |prod_sale| %>
+        <li>£<%= prod_sale.price %> x <%= prod_sale.quantity %> | <%= prod_sale.product.name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <br></br>
   <% end %>
+</ol>
 
 </div>

@@ -12,8 +12,8 @@ class Buyer < ApplicationRecord
   validates :cvv, presence: true, numericality: { only_integer: true }, length: { is: 3 }, :on => :update
   validates :card_expiry_year, presence: true, :on => :update
 
-  validates :billing_address, presence: true, length: 2..20, :on => :update
-  validates :delivery_address, presence: true, length: 2..20, :on => :update
+  validates :billing_address, presence: true, length: 2..30, :on => :update
+  validates :delivery_address, presence: true, length: 2..30, :on => :update
 
   validate :card_is_not_expired?
 

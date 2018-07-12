@@ -11,8 +11,8 @@
     <h3>Sales history:</h3><br>
 </div>
 
-  <div class="sales-history">
-    <ol>
+ <div class="sales-history">
+  <ol>
     <% @sales.each do |sale| %>
       <div >
         <b><%= sale.created_at %></b><br>
@@ -22,13 +22,14 @@
         <b>Sale total: </b>£<%= sale.total %><br>
         <b>Products sold:</b>
         <ul>
-          <% sale.products.each do |product| %>
-          <li> <%= product.name %> </li>
+          <% sale.prod_sales.each do |prod_sale| %>
+          <li>£<%= prod_sale.price %> x <%= prod_sale.quantity %> | <%= prod_sale.product.name %></li>
           <% end %>
         </ul>
       </div>
       <br></br>
     <% end %>
     </ol>
-    <% end %>
-  </div>
+  <% end %>
+ </div>
+

@@ -12,7 +12,7 @@ class BuyersController < ApplicationController
     cart.each do |item_id, quant|
       @cart_items[Product.find(item_id)] = quant
     end
-    @sales = Sale.where(buyer_id: current_user.class_id)
+    @sales = Sale.where(buyer_id: current_user.class_id).sort_by { |sale| sale.created_at }.reverse
   end
 
   def edit
