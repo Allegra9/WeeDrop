@@ -12,7 +12,7 @@ class SellersController < ApplicationController
 
   def show
     auth_seller_actions
-    @sales = Sale.where(seller_id: current_user.class_id)
+    @sales = Sale.where(seller_id: current_user.class_id).sort_by { |sale| sale.created_at }.reverse
   end
 
   def edit
