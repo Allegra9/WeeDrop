@@ -43,7 +43,7 @@ Product.create(name: "Blue Cookies (Indica)", price: 15.00, description: "Blue C
 Product.create(name: "Granddaddy Purple (Indica)", price: 13.00, description: "Granddaddy Purple (or GDP) is a famous indica cross between Purple Urkle and Big Bud.", seller_id: 3, img_url: "prods/grandaddypurple.jpg" )
 Product.create(name: "Organic OG (Indica)", price: 16.00, description: "Grown on holy land, only watered with the tears of virgins, and only picked on a full moon", seller_id: 3, img_url: "prods/organic-og.jpg")
 #10
-Product.create(name: "Cinderella 99 (Hybrid)", price: 12.00, description: "Cinderella 99, otherwise known as 'C99' or simply 'Cindy', is a sativa-dominant hybrid best known for her potent cerebral high and sweet fruity flavors.", seller_id: 4, img_url: "prods/cindarella99.jpg" )
+Product.create(name: "Cinderella 99 (Hybrid)", price: 12.00, description: "Cinderella 99, otherwise known as 'C99' or simply 'Cindy', is a sativa-dominant hybrid best known for her potent cerebral high and sweet fruity flavors.", seller_id: 4, img_url: "prods/cinderella99.jpg" )
 Product.create(name: "THC Bomb (Hybrid)", price: 15.00, description: "THC Bomb is a nuclear experience that will blow your mind", seller_id: 4, img_url: "prods/thcbomb.jpg" )
 Product.create(name: "Cherry Diesel (Hybrid)", price: 15.00, description: "Cherry Diesel is a 50/50 hybrid of Cherry OG and Turbo Diesel.", seller_id: 4, img_url: "prods/deep_sour_kush.jpg" )
 Product.create(name: "Pineapple Kush (Hybrid)", price: 12.00, description: "Pineapple Kush is a cross between Pineapple and Master Kush.", seller_id: 4, img_url: "prods/pineapplekush.jpg" )

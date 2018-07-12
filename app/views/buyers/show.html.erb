@@ -3,16 +3,18 @@
 
   <% if cart == {} %>
     <h3>Your Cart is Empty</h3>
+    <h4>Time to shop!</h4>
   <% else %>
     <div>
       <h3>Your Cart:</h3>
-      <h4>Shop: <%= link_to cart_seller.name, seller_products_path(cart_seller) %></h4>
+      <h4>Shop: <%= link_to cart_seller.name, seller_products_path(cart_seller) %></h4><br>
       <h5>TOTAL: £ <%= cart_total %></h5>
       <ul>
         <% @cart_items.each do |item, quant| %>
           <li><%= quant %> x £<%= item.price %> | <%= item.name%> - - <%= link_to "remove", seller_remove_product_path(item.seller, item, @buyer.id) %></li>
         <% end %>
       </ul>
+      <br>
       <%= form_tag '/sales/new', method: 'get' do %>
         <%= submit_tag "Checkout" %>
       <% end %>
@@ -35,7 +37,8 @@
   <% if @sales.length > 0 %>
     <br><br>
     <h3>Purchase history:</h3><br>
-
+</div>
+<div class="sales-history">
   <ol>
   <% @sales.each do |sale| %>
     <div >

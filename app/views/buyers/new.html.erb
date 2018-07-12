@@ -1,15 +1,18 @@
-<h3>New account:</h3>
+<div class="text-center">
 
-<%= form_tag "/users", method: 'post' do %>
-  <%= label_tag :name %>:
-  <%= text_field_tag :'buyer[name]' %>
-  <br><br>
-  <%= label_tag :username %>:
-  <%= text_field_tag :'user[username]' %>
-  <br><br>
-  <%= label_tag :password %>:
-  <%= password_field_tag :'user[password]' %>
-  <br><br>
-  <%= hidden_field_tag :'user[is_seller]', false %>
-  <%= submit_tag "Submit" %>
-<% end %>
+  <h3>New account:</h3>
+
+  <%= form_tag "/users", method: 'post' do %>
+    <%= label_tag :name %>:
+    <%= text_field_tag :'buyer[name]' %>
+    <br><br>
+    <%= label_tag :username %>:
+    <%= text_field_tag :'user[username]' %>
+    <br><br>
+    <%= label_tag :password %>:
+    <%= password_field_tag :'user[password]' %>
+    <br><br>
+    <%= hidden_field_tag :'user[is_seller]', false %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+</div>

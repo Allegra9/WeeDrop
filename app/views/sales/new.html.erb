@@ -1,53 +1,58 @@
-<%= link_to "Cancel", buyer_path(Buyer.find(current_user.class_id)) %>
+<div class="text-center">
 
-<% if cart != [] %>
-  <div>
-    <h3>Order summary:</h3>
-    <h4>TOTAL: £<%= cart_total %></h4>
-    <ul>
-      <% @cart_items.each do |item_quant| %>
-        <li><%= item_quant[1] %> x £<%= item_quant[0].price %> <%= item_quant[0].name%></li>
-      <% end %>
-    </ul>
+  <%= form_tag buyer_path(Buyer.find(current_user.class_id)), method: 'get' do %>
+    <%= submit_tag "Cancel" %>
+  <% end %>
+
+  <% if cart != [] %>
+    <div>
+      <h3>Order summary:</h3>
+      <h4>TOTAL: £<%= cart_total %></h4>
+      <ul>
+        <% @cart_items.each do |item_quant| %>
+          <li><%= item_quant[1] %> x £<%= item_quant[0].price %> <%= item_quant[0].name%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+
+  <br>
+  <h3>Payment details:</h3>
+  <%= form_tag "/sales", method: 'post' do %>
+    <%= label_tag :'cardholder_name' %>:
+    <%= text_field_tag :'buyer[cardholder_name]' %>
+    <br><br>
+    <%= label_tag :'card_number' %>:
+    <%= text_field_tag :'buyer[card_number]' %>
+    <br><br>
+    <%= label_tag :'card_expiry_date' %>:
+    <%= select_month nil, {add_month_numbers: false}, {name: 'buyer[card_expiry_month]', id: "card_month"} %>
+    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: 'buyer[card_expiry_year]', id: "card_year"} %>
+    <br><br>
+    <%= label_tag :'buyer[cvv]', "CVV" %>:
+    <%= text_field_tag :'buyer[cvv]' %>
+    <br><br>
+    <%= label_tag :'email_address' %>:
+    <%= text_field_tag :'buyer[email_address]' %>
+    <br><br>
+    <%= label_tag :'billing_address' %>:
+    <%= text_field_tag :'buyer[billing_address]' %>
+    <br><br>
+    <%= label_tag :'billing_postcode' %>:
+    <%= text_field_tag :'buyer[billing_postcode]' %>
+    <br><br>
+    <%= label_tag :'delivery_address' %>:
+    <%= text_field_tag :'buyer[delivery_address]' %>
+    <br><br>
+    <%= label_tag :'delivery_postcode' %>:
+    <%= text_field_tag :'buyer[delivery_postcode]' %>
+    <br><br>
+    <%= hidden_field_tag :'sale[total]', cart_total %>
+    <%= hidden_field_tag :'sale[buyer_id]', current_user.class_id %>
+    <%= hidden_field_tag :'sale[seller_id]', @seller.id %>
+    <%= submit_tag "Make Payment" %>
+  <% end %>
+
+  <br>
   </div>
-<% end %>
-<br>
-
-<br>
-<h3>Payment details:</h3>
-<%= form_tag "/sales", method: 'post' do %>
-  <%= label_tag :'cardholder_name' %>:
-  <%= text_field_tag :'buyer[cardholder_name]' %>
-  <br><br>
-  <%= label_tag :'card_number' %>:
-  <%= text_field_tag :'buyer[card_number]' %>
-  <br><br>
-  <%= label_tag :'card_expiry_date' %>:
-  <%= select_month nil, {add_month_numbers: false}, {name: 'buyer[card_expiry_month]', id: "card_month"} %>
-  <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: 'buyer[card_expiry_year]', id: "card_year"} %>
-  <br><br>
-  <%= label_tag :'buyer[cvv]', "CVV" %>:
-  <%= text_field_tag :'buyer[cvv]' %>
-  <br><br>
-  <%= label_tag :'email_address' %>:
-  <%= text_field_tag :'buyer[email_address]' %>
-  <br><br>
-  <%= label_tag :'billing_address' %>:
-  <%= text_field_tag :'buyer[billing_address]' %>
-  <br><br>
-  <%= label_tag :'billing_postcode' %>:
-  <%= text_field_tag :'buyer[billing_postcode]' %>
-  <br><br>
-  <%= label_tag :'delivery_address' %>:
-  <%= text_field_tag :'buyer[delivery_address]' %>
-  <br><br>
-  <%= label_tag :'delivery_postcode' %>:
-  <%= text_field_tag :'buyer[delivery_postcode]' %>
-  <br><br>
-  <%= hidden_field_tag :'sale[total]', cart_total %>
-  <%= hidden_field_tag :'sale[buyer_id]', current_user.class_id %>
-  <%= hidden_field_tag :'sale[seller_id]', @seller.id %>
-  <%= submit_tag "Make Payment" %>
-<% end %>
-
-<br>

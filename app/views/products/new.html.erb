@@ -1,20 +1,21 @@
-<%= link_to "Back to Ma SHOP", seller_products_path(current_user.class_id) %>
-
-<h1>Add a Product to your Shop</h1>
-
-<%= form_for @product, url: seller_create_product_path do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %>
-  <br><br>
-  <%= f.label :price %>:
-  <%= f.number_field :price %>
-  <br><br>
-  <%= f.label :description %>:
-  <%= f.text_field :description %>
-  <br><br>
-  <%= f.label :img_url, "Image URL" %>:
-  <%= f.text_field :img_url %>
-  <br><br>
-  <%= f.hidden_field :seller_id, value: @seller.id %>
-  <%= f.submit %>
-<% end %>
+<div class="text-center">
+  <h1>Add a Product to your Shop</h1>
+</div>
+<div class="new-product">
+  <%= form_for @product, url: seller_create_product_path do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.label :price %>:
+    <%= f.number_field :price %>
+    <br><br>
+    <%= f.label :description %>:
+    <%= f.text_field :description %>
+    <br><br>
+    <%= f.label :img_url, "Image URL" %>:
+    <%= f.text_field :img_url %>
+    <br><br>
+    <%= f.hidden_field :seller_id, value: @seller.id %>
+    <%= f.submit %>
+  <% end %>
+</div>

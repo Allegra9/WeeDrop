@@ -4,6 +4,7 @@ footer {
   color: #e8e5bb;
   padding: 40px;
   border: 1px solid #000;
+  text-align: center;
 }
 
 .shop-headline {
@@ -25,4 +26,8 @@ ul {
   width: 100%;
   margin-left: 35%;
   margin-right: auto;
+}
+
+.new-product {
+  margin-left: 40%;
 }
