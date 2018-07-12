@@ -1,3 +1,5 @@
+<%= link_to "Back to Ma SHOP", seller_products_path(current_user.class_id) %>
+
 <h1>Add a Product to your Shop</h1>
 
 <%= form_for @product, url: seller_create_product_path do |f| %>

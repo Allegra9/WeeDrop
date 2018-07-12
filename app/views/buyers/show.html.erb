@@ -37,3 +37,23 @@
     <%= @buyer.delivery_address %>, <%= @buyer.delivery_postcode %>
   </div>
 <% end %>
+
+<br><br>
+<h3>Purchase history:</h3><br>
+
+<ol>
+<% @sales.each do |sale| %>
+  <div >
+    <b><%= sale.created_at %></b><br>
+    <b>Shop name: </b><%= sale.seller.name %><br>
+    <b>Sale total: </b>£<%= sale.total %><br>
+    <b>Products bought:</b>
+    <ul>
+      <% sale.products.each do |product| %>
+      <li> <%= product.name %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <br></br>
+<% end %>
+</ol>

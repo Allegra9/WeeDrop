@@ -52,11 +52,13 @@ ActiveRecord::Schema.define(version: 2018_07_09_154227) do
 
   create_table "sales", force: :cascade do |t|
     t.integer "buyer_id"
+    t.integer "seller_id"
     t.string "status"
     t.float "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_sales_on_buyer_id"
+    t.index ["seller_id"], name: "index_sales_on_seller_id"
   end
 
   create_table "sellers", force: :cascade do |t|

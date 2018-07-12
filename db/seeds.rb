@@ -11,7 +11,7 @@ Seller.create(name: "Sativa Heaven", address: "79 Riverside Rd", postcode: "SW6 
 Seller.create(name: "Indica Shop", address: "100 Richmond Rd", postcode: "TW10 5HZ" )
 Seller.create(name: "Cindarella 99", address: "99 Cindy Street", postcode: "KT2 5LU" )
 Seller.create(name: "Ganja Goddess Bakes", address: "23 Finchley Rd", postcode: "N2 5TH" )
-Seller.create(name: "Chocolate Hai", address: "131 Finsbury Pavament", postcode: "EC2A 1NT" )
+Seller.create(name: "Chocolate Hai", address: "131 Finsbury Pavament", postcode: "E14 1NT" )
 
 user1 = User.create(username: 'testb', password: '1234567', is_seller: false)
 buyer1 = Buyer.create(name: 'TestBuyer')

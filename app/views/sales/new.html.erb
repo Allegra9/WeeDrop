@@ -26,7 +26,7 @@
   <%= select_month nil, {add_month_numbers: false}, {name: 'buyer[card_expiry_month]', id: "card_month"} %>
   <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: 'buyer[card_expiry_year]', id: "card_year"} %>
   <br><br>
-  <%= label_tag :'buyer[cvv]', "CCV" %>:
+  <%= label_tag :'buyer[cvv]', "CVV" %>:
   <%= text_field_tag :'buyer[cvv]' %>
   <br><br>
   <%= label_tag :'email_address' %>:
@@ -44,7 +44,9 @@
   <%= label_tag :'delivery_postcode' %>:
   <%= text_field_tag :'buyer[delivery_postcode]' %>
   <br><br>
-  <%= hidden_field_tag :total, cart_total %>
+  <%= hidden_field_tag :'sale[total]', cart_total %>
+  <%= hidden_field_tag :'sale[buyer_id]', current_user.class_id %>
+  <%= hidden_field_tag :'sale[seller_id]', @seller.id %>
   <%= submit_tag "Make Payment" %>
 <% end %>
 

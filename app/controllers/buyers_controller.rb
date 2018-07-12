@@ -1,4 +1,5 @@
 class BuyersController < ApplicationController
+  before_action :set_buyer, only: [:show, :edit, :update, :destroy]
   skip_before_action :require_log_in, only: :new
 
   def new
@@ -6,15 +7,16 @@ class BuyersController < ApplicationController
   end
 
   def show
-    @buyer = Buyer.find(params[:id])
+    auth_buyer_actions
     @cart_items = {}
     cart.each do |item_id, quant|
       @cart_items[Product.find(item_id)] = quant
     end
+    @sales = Sale.where(buyer_id: current_user.class_id)
   end
 
   def edit
-    @buyer = Buyer.find(params[:id])
+    auth_buyer_actions
   end
 
   def update
@@ -23,7 +25,6 @@ class BuyersController < ApplicationController
   end
 
   def destroy
-
   end
 
   def discard
@@ -35,6 +36,17 @@ class BuyersController < ApplicationController
 
   def buyer_params(*args)
     params.require(:buyer).permit(*args)
+  end
+
+  def set_buyer
+    @buyer = Buyer.find(params[:id])
+  end
+
+  def auth_buyer_actions
+    if current_user.is_seller || current_user.class_id != @buyer.id
+      flash[:errors] = ["You can't see this page"]
+      redirect_to sellers_path
+    end
   end
 
 end

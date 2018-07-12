@@ -1,10 +1,11 @@
+<div class="text-center login_page">
 <h3>Log in:</h3>
 
 <%= form_for @user, method: 'post', url: '/sessions' do |f| %>
-  <%= f.label :username %>
+  <%= f.label :username %>:
   <%= f.text_field :username %>
   <br></br>
-  <%= f.label :password %>
+  <%= f.label :password %>:
   <%= f.password_field :password %>
   <br><br>
   <%= f.submit "Submit" %>
@@ -16,3 +17,10 @@ or Sign Up as a:
 <%= link_to "Buyer", new_buyer_path %>
  or
 <%= link_to "Seller", new_seller_path %>
+
+</div>
+
+<div class="login_page_bottom">
+  <img src="benefits.jpg" alt="Marijuana benefits" width="200px" height="200px">
+</div>
+<!-- <img src="smiley.gif" alt="Smiley face" height="42" width="42"> -->

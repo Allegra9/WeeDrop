@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
   end
 
   def new
-    auth_seller_actions
     @product = Product.new
     @seller = Seller.find(params[:seller_id])
+    auth_seller_actions
   end
 
   def create
@@ -27,8 +27,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    auth_seller_actions
     @seller = Seller.find(params[:seller_id])
+    auth_seller_actions
   end
 
   def update
@@ -72,6 +72,7 @@ class ProductsController < ApplicationController
   end
 
   def auth_seller_actions
+    @seller = Seller.find(params[:seller_id])
     if !current_user.is_seller || current_user.class_id != @seller.id
       flash[:errors] = ["You can't see this page"]
       redirect_to sellers_path

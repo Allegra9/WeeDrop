@@ -1,20 +1,32 @@
-<%= link_to "Visit Shops", sellers_path %> \
+<%= link_to "Market place", sellers_path %> \
 <%= link_to "Edit Account Details", edit_seller_path(@seller) %> \
 <%= link_to "Log Out", logout_path %>
+<br><br>
 
-<h1><%= @seller.name %></h1>
-
-Address:
+<h1>Hi, <%= @seller.name %>!</h1>
+<%= link_to "MY SHOP", seller_products_path(current_user.class_id) %>
+<br><br>
+Business address:
 <%= @seller.address %>, <%= @seller.postcode %>
 
 <br><br>
-Ships from:<br>
-And the first part of the postcode? <br>
-on all products page? <br>
+<h3>Sales history:</h3><br>
 
-
-Here the seller should be able to see their sales stats? <br>
-
-Products new - list a new product <br>
-Products all - see all listings <br>
-Products edit - edit their listings <br>
+<ol>
+<% @sales.each do |sale| %>
+  <div >
+    <b><%= sale.created_at %></b><br>
+    <b>Buyer: </b><%= sale.buyer.name %><br>
+    <b>Buyer's email: </b><%= sale.buyer.email_address %><br>
+    <b>Delivered to: </b><%= sale.buyer.delivery_address %>, <%= sale.buyer.delivery_postcode%><br>
+    <b>Sale total: </b>£<%= sale.total %><br>
+    <b>Products sold:</b>
+    <ul>
+      <% sale.products.each do |product| %>
+      <li> <%= product.name %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <br></br>
+<% end %>
+</ol>
