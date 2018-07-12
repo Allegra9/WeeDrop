@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     @user = user.try(:authenticate, params[:user][:password])
 
     unless @user
+      flash[:errors] = ["That username and password do not match"]
       return redirect_to(controller: 'sessions', action: 'new')
     end
 

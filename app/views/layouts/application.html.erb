@@ -64,13 +64,15 @@
     </header>
 
     <% if flash[:errors] %>
-      <h4>Oops.. something went wrong:</h4>
-      <ul>
-        <% flash[:errors].each do |error| %>
-          <li style = "color: red;"><%= error %></li>
-        <% end %>
-      </ul>
-      <br>
+      <div class="text-center">
+        <h4>Oops.. something went wrong:</h4>
+        <ul>
+          <% flash[:errors].each do |error| %>
+            <li style = "color: red;"><%= error %></li>
+          <% end %>
+        </ul>
+        <br>
+      </div>
     <% end %>
 
     <%= yield %>
