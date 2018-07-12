@@ -1,32 +1,30 @@
-<%= link_to "Market place", sellers_path %> \
-<%= link_to "Edit Account Details", edit_seller_path(@seller) %> \
-<%= link_to "Log Out", logout_path %>
-<br><br>
-
-<h1>Hi, <%= @seller.name %>!</h1>
-<%= link_to "MY SHOP", seller_products_path(current_user.class_id) %>
-<br><br>
-Business address:
+<h1><%= @seller.name %></h1>
+<b>Business address:</b>
 <%= @seller.address %>, <%= @seller.postcode %>
+<br>
+<%= link_to "Edit Account Details", edit_seller_path(@seller) %>
+
 
 <br><br>
-<h3>Sales history:</h3><br>
+<% if @sales.length > 0 %>
+  <h3>Sales history:</h3><br>
 
-<ol>
-<% @sales.each do |sale| %>
-  <div >
-    <b><%= sale.created_at %></b><br>
-    <b>Buyer: </b><%= sale.buyer.name %><br>
-    <b>Buyer's email: </b><%= sale.buyer.email_address %><br>
-    <b>Delivered to: </b><%= sale.buyer.delivery_address %>, <%= sale.buyer.delivery_postcode%><br>
-    <b>Sale total: </b>£<%= sale.total %><br>
-    <b>Products sold:</b>
-    <ul>
-      <% sale.products.each do |product| %>
-      <li> <%= product.name %> </li>
-      <% end %>
-    </ul>
-  </div>
-  <br></br>
+  <ol>
+  <% @sales.each do |sale| %>
+    <div >
+      <b><%= sale.created_at %></b><br>
+      <b>Buyer: </b><%= sale.buyer.name %><br>
+      <b>Buyer's email: </b><%= sale.buyer.email_address %><br>
+      <b>Delivered to: </b><%= sale.buyer.delivery_address %>, <%= sale.buyer.delivery_postcode%><br>
+      <b>Sale total: </b>£<%= sale.total %><br>
+      <b>Products sold:</b>
+      <ul>
+        <% sale.products.each do |product| %>
+        <li> <%= product.name %> </li>
+        <% end %>
+      </ul>
+    </div>
+    <br></br>
+  <% end %>
+  </ol>
 <% end %>
-</ol>

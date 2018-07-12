@@ -11,6 +11,60 @@
   </head>
 
   <body>
+
+    <% if logged_in? %>
+      <header class="masthead text-white text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-1">
+              <%= image_tag "drone-logo.png", height: 100 %>
+            </div>
+            <div class="col-md-4">
+              <h1>WeeDrop</h1>
+              <h5>Shop 'till WeeDrop</h5>
+            </div>
+            <div class="col-md-1">
+              <%= image_tag "drone-logo.png", height: 100 %>
+            </div>
+            <div class="col-md-3">
+            </div>
+          </div>
+          <hr>
+          <div class="row justify-content-around">
+            <div class="col-md-2" id="market_place_link">
+              <h4><%= link_to "MarketPlace", sellers_path %></h4>
+            </div>
+            <div class="col-md-2">
+              <% if current_user.is_seller %>
+                <h4><%= link_to "My Shop", seller_products_path(current_user.class_id) %></h4>
+              <% end %>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-2">
+              <% if current_user.is_seller %>
+                <% account = Seller.find(current_user.class_id) %>
+                <h4><%= link_to "My Account", account %></h4>
+              <% else %>
+                <% account = Buyer.find(current_user.class_id) %>
+                <h4><%= link_to "My Account / Cart", account %></h4>
+              <% end %>
+            </div>
+            <div class="col-md-2">
+              <h4><%= link_to "Logout", logout_path %></h4>
+            </div>
+          </div>
+          <!-- <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
+          <h1 class="mb-0">WeeDrop</h1>
+          <hr class="star-light">
+          <h4 class="font-weight-light justify-content-start">Market Place</h4>
+          <h4 class="justify-content-end">Logout</h4> -->
+        </div>
+      </header>
+    <% end %>
+
     <% if flash[:errors] %>
       <h4>Oops.. something went wrong:</h4>
       <ul>

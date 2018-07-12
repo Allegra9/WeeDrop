@@ -1,14 +1,7 @@
-<% if current_user.is_seller %>
-  <%= link_to "My Account", seller_path(current_user.class_id) %> \
-  <%= link_to "My SHOP", seller_products_path(current_user.class_id) %>
-<% else %>
-  <%= link_to "Profile/Cart", buyer_path(current_user.class_id) %>
-<% end %>
-
 <h1>Welcome to the MarketPlace!!</h1>
 
 <h2>Browse through all available Shops!</h2>
-<h3>Shop from one for the fastest delivery!</h3>
+<h5><b>NOTE:</b> All items in a delivery must belong to the same shop</h5>
 
 <ul>
   <% @sellers.each do |seller| %>

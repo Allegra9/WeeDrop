@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :cart, :cart_total, :empty_cart, :current_user, :cart_seller
+  helper_method :cart, :cart_total, :empty_cart, :current_user, :cart_seller, :logged_in?
   before_action :current_user
   before_action :require_log_in
 
