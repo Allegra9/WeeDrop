@@ -1,17 +1,10 @@
-<%= link_to "Back to all sellers", sellers_path %>
-<br><br>
+<h1><%= @seller.name %></h1>
 
+<h3>Products for sale:</h3>
 <% if current_user.is_seller && current_user.class_id == @seller.id %>
-  <%= link_to "Add a Product", new_seller_product_path(@seller) %>
-<% end %>
-
-<% if !current_user.is_seller %>
-  <%= link_to "Profile/Cart", buyer_path(Buyer.find(current_user.class_id)) %>
-<% end %>
-
-<h3>Here are all products:</h3>
-<% if !current_user.is_seller %>
-  <p>Shop from one shop for the fastest delivery.</p>
+  <%= form_tag new_seller_product_path(@seller), method: 'get' do %>
+    <%= submit_tag "Add a Product" %><br><br>
+  <% end %>
 <% end %>
 
 <div>
