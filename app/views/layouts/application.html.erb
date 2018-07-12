@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
 
@@ -17,19 +18,19 @@
         <div class="container">
           <div class="row">
 
-            <div class="col-md-3">
-              <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 100 %>
+            <div class="col-sm-3">
+              <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 0 %>
             </div>
-            <div class="col-md-1">
+            <div class="col-sm-1">
             </div>
-            <div class="col-md-4">
-              <%= image_tag "weedrop-logo.png", height: 200 %>
-              <h5>Shop 'till WeeDrop</h5>
+            <div class="col-sm-4">
+              <%= image_tag "weedrop-logo.png", width: 300, height: 170 %>
+              <h3 class="shop-headline"><i>Shop 'till WeeDrop</i></h3>
             </div>
-            <div class="col-md-1">
+            <div class="col-sm-1">
             </div>
-            <div class="col-md-3">
-              <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 100 %>
+            <div class="col-sm-3">
+              <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 0 %>
             </div>
 
           </div>
@@ -78,14 +79,27 @@
     <% end %>
 
     <%= yield %>
+
+    <!-- <hr> -->
+
     <footer>
-      <div class="">
-        <p>
-          If you are a London resident with a medical marijuana recommendation,
-          you can join WeeDrop today and have cannabis delivered right to your front door!
-          WeeDrop is a fully compliant medical marijuana delivery cooperative that can ship same day to patients everywhere in London.
-          We are committed to the safe, discreet, and affordable delivery of medical marijuana.
-        </p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2">
+            <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 90 %>
+          </div>
+          <div class="col-sm-8">
+            <p>
+              If you are a London resident with a medical marijuana recommendation,
+              you can join WeeDrop today and have cannabis delivered right to your front door!
+              WeeDrop is a fully compliant medical marijuana delivery cooperative that can ship same day to patients everywhere in London.
+              We are committed to the safe, discreet, and affordable delivery of medical marijuana.
+            </p>
+          </div>
+          <div class="col-sm-2">
+            <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 90 %>
+          </div>
+        </div>
       </div>
     </footer>
   </body>

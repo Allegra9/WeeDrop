@@ -1,10 +1,12 @@
-<h1>Welcome to the MarketPlace!!</h1>
+<div class="text-center">
+  <h1>Welcome to the MarketPlace!!</h1>
 
-<h2>Browse through all available Shops!</h2>
-<h5><b>NOTE:</b> All items in a delivery must belong to the same shop</h5>
+  <h2>Browse through all available Shops!</h2>
+  <h4 class="one-shop-line">Shop from one for the SAME day delivery</h4>
 
-<ul>
-  <% @sellers.each do |seller| %>
-    <li><%= link_to seller.name, seller_products_path(seller) %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @sellers.each do |seller| %>
+      <li><%= link_to seller.name, seller_products_path(seller) %></li>
+    <% end %>
+  </ul>
+</div>
