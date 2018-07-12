@@ -14,6 +14,35 @@
   margin-right: auto;
 }
 
-.round-logo {
+/* .round-logo {
+  margin-top: 7em;
+} */
+
+footer {
   margin-top: 50px;
+  background-color: #000;
+  color: #e8e5bb;
+  padding: 40px;
+  border: 1px solid #000;
+}
+
+.shop-headline {
+  font-family: 'Exo 2', sans-serif;
+  /* border: 1px solid #000; */
+  margin-top: 0;
+  font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.one-shop-line {
+  color: #33d647;
+}
+
+.sales-history {
+  width: 100%;
+  margin-left: 35%;
+  margin-right: auto;
 }

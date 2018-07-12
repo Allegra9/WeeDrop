@@ -1,39 +1,40 @@
-<h1><%= @buyer.name %></h1>
+<div class="text-center">
+  <h1><%= @buyer.name %></h1>
 
-<% if cart == {} %>
-  <h3>Your Cart is Empty</h3>
-<% else %>
-  <div>
-    <h3>Your Cart:</h3>
-    <h4>Shop: <%= link_to cart_seller.name, seller_products_path(cart_seller) %></h4>
-    <h5>TOTAL: £ <%= cart_total %></h5>
-    <ul>
-      <% @cart_items.each do |item, quant| %>
-        <li><%= quant %> x £<%= item.price %> | <%= item.name%> - - <%= link_to "remove", seller_remove_product_path(item.seller, item, @buyer.id) %></li>
+  <% if cart == {} %>
+    <h3>Your Cart is Empty</h3>
+  <% else %>
+    <div>
+      <h3>Your Cart:</h3>
+      <h4>Shop: <%= link_to cart_seller.name, seller_products_path(cart_seller) %></h4>
+      <h5>TOTAL: £ <%= cart_total %></h5>
+      <ul>
+        <% @cart_items.each do |item, quant| %>
+          <li><%= quant %> x £<%= item.price %> | <%= item.name%> - - <%= link_to "remove", seller_remove_product_path(item.seller, item, @buyer.id) %></li>
+        <% end %>
+      </ul>
+      <%= form_tag '/sales/new', method: 'get' do %>
+        <%= submit_tag "Checkout" %>
       <% end %>
-    </ul>
-    <%= form_tag '/sales/new', method: 'get' do %>
-      <%= submit_tag "Checkout" %>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 
-<% if @buyer.billing_address %>
-  <br><br>
-  <%= link_to "Edit addresses", edit_buyer_path %>
-  <div>
-    <h3>My addresses:</h3>
-    <li>Billing address:</li>
-    <%= @buyer.billing_address %>, <%= @buyer.billing_postcode %>
+  <% if @buyer.billing_address %>
     <br><br>
-    <li>Delivery address:</li>
-    <%= @buyer.delivery_address %>, <%= @buyer.delivery_postcode %>
-  </div>
-<% end %>
+    <%= link_to "Edit addresses", edit_buyer_path %>
+    <div>
+      <h3>My addresses:</h3>
+      <li>Billing address:</li>
+      <%= @buyer.billing_address %>, <%= @buyer.billing_postcode %>
+      <br><br>
+      <li>Delivery address:</li>
+      <%= @buyer.delivery_address %>, <%= @buyer.delivery_postcode %>
+    </div>
+  <% end %>
 
-<% if @sales.length > 0 %>
-  <br><br>
-  <h3>Purchase history:</h3><br>
+  <% if @sales.length > 0 %>
+    <br><br>
+    <h3>Purchase history:</h3><br>
 
   <ol>
   <% @sales.each do |sale| %>
@@ -50,5 +51,6 @@
     </div>
     <br></br>
   <% end %>
-  </ol>
-<% end %>
+</ol>
+
+</div>
