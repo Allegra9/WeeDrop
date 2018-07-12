@@ -6,6 +6,7 @@
 
   <ul>
     <% @sellers.each do |seller| %>
+      <br><br>
       <li><%= link_to seller.name, seller_products_path(seller) %></li>
     <% end %>
   </ul>
