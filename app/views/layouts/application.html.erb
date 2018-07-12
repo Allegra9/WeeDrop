@@ -13,28 +13,28 @@
 
   <body>
 
-    <% if logged_in? %>
-      <header class="masthead text-white text-center">
-        <div class="container">
-          <div class="row">
+    <header class="masthead text-white text-center">
+      <div class="container">
+        <div class="row">
 
-            <div class="col-sm-3">
-              <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 0 %>
-            </div>
-            <div class="col-sm-1">
-            </div>
-            <div class="col-sm-4">
-              <%= image_tag "weedrop-logo.png", width: 300, height: 170 %>
-              <h3 class="shop-headline"><i>Shop 'till WeeDrop</i></h3>
-            </div>
-            <div class="col-sm-1">
-            </div>
-            <div class="col-sm-3">
-              <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 0 %>
-            </div>
-
+          <div class="col-sm-3">
+            <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 0 %>
           </div>
-          <hr>
+          <div class="col-sm-1">
+          </div>
+          <div class="col-sm-4">
+            <%= image_tag "weedrop-logo.png", width: 300, height: 170 %>
+            <h3 class="shop-headline"><i>Shop 'till WeeDrop</i></h3>
+          </div>
+          <div class="col-sm-1">
+          </div>
+          <div class="col-sm-3">
+            <%= image_tag "kanabis-logo.jpg", class: "round-logo", height: 0 %>
+          </div>
+
+        </div>
+        <hr>
+        <% if logged_in? %>
           <div class="row justify-content-around">
             <div class="col-md-2" id="market_place_link">
               <h4><%= link_to "MarketPlace", sellers_path %></h4>
@@ -59,23 +59,20 @@
               <h4><%= link_to "Logout", logout_path %></h4>
             </div>
           </div>
-          <!-- <img class="img-fluid mb-5 d-block mx-auto" src="img/profile.png" alt="">
-          <h1 class="mb-0">WeeDrop</h1>
-          <hr class="star-light">
-          <h4 class="font-weight-light justify-content-start">Market Place</h4>
-          <h4 class="justify-content-end">Logout</h4> -->
-        </div>
-      </header>
-    <% end %>
+        <% end %>
+      </div>
+    </header>
 
     <% if flash[:errors] %>
-      <h4>Oops.. something went wrong:</h4>
-      <ul>
-        <% flash[:errors].each do |error| %>
-          <li style = "color: red;"><%= error %></li>
-        <% end %>
-      </ul>
-      <br>
+      <div class="text-center">
+        <h4>Oops.. something went wrong:</h4>
+        <ul>
+          <% flash[:errors].each do |error| %>
+            <li style = "color: red;"><%= error %></li>
+          <% end %>
+        </ul>
+        <br>
+      </div>
     <% end %>
 
     <%= yield %>

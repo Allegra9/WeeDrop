@@ -5,6 +5,7 @@
   <% end %>
 
     <%= @product.name %><br>
+
     Price: £<%= @product.price %><br>
     <!-- <br><br> -->
 
@@ -13,7 +14,7 @@
 
       <%= form_tag "/sellers/#{@product.seller.id}/products/#{@product.id}/add", method: 'post' do %>
       <br>
-        <%= select_tag(:quantity, options_for_select([['1', 1], ['4', 4], ['7', 7], ['14', 14], ['28', 28]])) %>
+        <%= number_field_tag :quantity %>
         <%= submit_tag "Add to cart" %>
       <% end %>
       <br></br>
