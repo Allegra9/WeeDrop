@@ -1,5 +1,7 @@
 # README
 
+This is an end of Mod2 project (Flatiron School), built in 4 days using Ruby on Rails, pair programmed with Gabriel @GCdM, presented in Science Fair 13/7/2018
+
 To get this app up and running, run:
 
 rake db:migrate db:seed
