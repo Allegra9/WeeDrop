@@ -15,7 +15,7 @@ to get the server running and go to:
 localhost:3000
 in your browser (let me guess you're using Crome).
 
-Have fun! Shop 'till WeeDrop!
+Have fun! Shop 'til WeeDrop!
 
 To protect the database from bad data, this application has strict validations,
 i.e., we are using:
