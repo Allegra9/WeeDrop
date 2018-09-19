@@ -1,6 +1,10 @@
 # README
 
+Medical marijuana same day drone delivery across London.
+
 This is an end of Mod2 project (Flatiron School), built in 4 days using Ruby on Rails, pair programmed with Gabriel @GCdM, presented in Science Fair 13/7/2018
+
+Demo video: https://www.youtube.com/watch?v=nlYGWVqFd1U&t=1s
 
 To get this app up and running, run:
 
