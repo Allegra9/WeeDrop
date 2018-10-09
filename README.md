@@ -1,24 +1,20 @@
-# README
-
-Medical marijuana same day drone delivery across London.
+## "WeeDrop" - E-commerce app for Medical marijuana
 
 This is an end of Mod2 project (Flatiron School), built in 4 days using Ruby on Rails, pair programmed with Gabriel @GCdM, presented in Science Fair 13/7/2018
 
-Demo video: https://www.youtube.com/watch?v=nlYGWVqFd1U&t=1s
+## Demo video: 
 
-To get this app up and running, run:
+https://www.youtube.com/watch?v=nlYGWVqFd1U&t=1s
 
-rake db:migrate db:seed
+## How to run:
 
-This will run the migrations and seed your database with the data from the seeds.rb file.
+```rake db:migrate db:seed```   to migrate and seed database with the data from the seeds.rb file.
 
-Then run:
-rails s
-to get the server running and go to:
+```rails s```    to run the server 
 
-localhost:3000  in your browser 
+then go to =>     localhost:3000  in your browser 
 
-Have fun! Shop 'til WeeDrop!
+## Have fun! Shop 'til WeeDrop!
 
 To protect the database from bad data, this application has strict validations,
 i.e., we are using:
