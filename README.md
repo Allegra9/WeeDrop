@@ -18,6 +18,4 @@ then go to =>     localhost:3000  in your browser
 
 To protect the database from bad data, this application has strict validations,
 i.e., we are using:
- gem "uk_postcode", "~> 2.1.0"
-
-to validate the UK postcodes.
+ gem "uk_postcode", "~> 2.1.0" to validate the UK postcodes.
