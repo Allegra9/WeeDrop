@@ -1,6 +1,7 @@
 ## "WeeDrop" - E-commerce app for Medical marijuana
 
-This is an end of Mod2 project (Flatiron School), built in 4 days using Ruby on Rails, pair programmed with Gabriel @GCdM, presented in Science Fair 13/7/2018
+Pair programmed with Gabriel @GCdM in 4 days using Ruby on Rails.
+This project was presented on 13/7/2018 end of Module 2, 6 weeks into Flatiron's Software Engineering Immersive.
 
 ## Demo video: 
 
