@@ -1,23 +1,22 @@
-# README
+## "WeeDrop" - E-commerce app for Medical marijuana
 
-This is an end of Mod2 project (Flatiron School), built in 4 days using Ruby on Rails, pair programmed with Gabriel @GCdM, presented in Science Fair 13/7/2018
+Pair programmed with Gabriel @GCdM in 4 days using Ruby on Rails.
+This project was presented on 13/7/2018 end of Module 2, 6 weeks into Flatiron's Software Engineering Immersive.
 
-To get this app up and running, run:
+## Demo video: 
 
-rake db:migrate db:seed
+https://www.youtube.com/watch?v=nlYGWVqFd1U&t=1s
 
-This will run the migrations and seed your database with the data from the seeds.rb file.
+## How to run:
 
-Then run:
-rails s
-to get the server running and go to:
+```rake db:migrate db:seed```   to migrate and seed database with the data from the seeds.rb file.
 
-localhost:3000  in your browser 
+```rails s```    to run the server 
 
-Have fun! Shop 'til WeeDrop!
+then go to =>     localhost:3000  in your browser 
+
+## Have fun! Shop 'til WeeDrop!
 
 To protect the database from bad data, this application has strict validations,
 i.e., we are using:
- gem "uk_postcode", "~> 2.1.0"
-
-to validate the UK postcodes.
+ gem "uk_postcode", "~> 2.1.0" to validate the UK postcodes.
